@@ -164,7 +164,7 @@ public class XxlJobExecutor  {
     private void initRpcProvider(String ip, int port, String appName, String accessToken) throws Exception {
 
         // init, provider factory
-        String address = IpUtil.getIpPort(ip, port);
+        String address = initServiceRegistryAddress(ip, port);
         Map<String, String> serviceRegistryParam = new HashMap<String, String>();
         serviceRegistryParam.put("appName", appName);
         serviceRegistryParam.put("address", address);
@@ -178,6 +178,18 @@ public class XxlJobExecutor  {
         // start
         xxlRpcProviderFactory.start();
 
+    }
+    
+    /**
+     * init registry address, could be rewrited at child class
+     * @author xiewanzhi at 2019.6.29
+     * @param ip
+     * @param port
+     * @return
+     */
+    protected String initServiceRegistryAddress(String ip, int port) {
+        String address = IpUtil.getIpPort(ip, port);
+        return address;
     }
 
     public static class ExecutorServiceRegistry extends ServiceRegistry {
