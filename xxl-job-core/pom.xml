@@ -6,7 +6,10 @@
 		<artifactId>xxl-job</artifactId>
 		<version>2.0.2</version>
 	</parent>
-	<artifactId>xxl-job-core</artifactId>
+	
+    <groupId>osp.cloud.server</groupId>
+    <artifactId>xxl-job-core</artifactId>
+    <version>2.0.2</version>
 	<packaging>jar</packaging>
 
 	<name>${project.artifactId}</name>
